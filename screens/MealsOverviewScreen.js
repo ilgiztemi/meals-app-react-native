@@ -9,8 +9,16 @@ const MealsOverviewScreen = ({route}) => {
     return mealItem.categoryIds.indexOf(catId) >= 0;
   })
   const renderMealItem = (itemData) => {
+    const item = itemData.item;
+    const mealItemProps = {
+      title: item.title,
+      imageUrl: item.imageUrl,
+      affordability: item.affordability,
+      duration: item.duration,
+      complexity: item.complexity
+    }
     return(
-      <MealItem title={itemData.item.title} />
+      <MealItem {...mealItemProps} />
     )
   }
   return (
