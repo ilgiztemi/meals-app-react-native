@@ -2,6 +2,15 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import * as Notifications from 'expo-notifications'
 
+Notifications.setNotificationHandler({
+  handleNotification: async () => {
+    return {
+      shouldPlaySound: false,
+      shouldSetBadge: false,
+      shouldShowAlert: true
+    };
+  }
+})
 const FavoritesScreen = () => {
   const scheduleNotificationHandler = () => {
     Notifications.scheduleNotificationAsync({
